@@ -1,0 +1,70 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 24
+          cache: gradle
+
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24
+
+
+      - name: Build with Gradle
+        run: ./gradlew clean composeApp:jsBrowserDistribution
+
+
+      - name: Copy stickers into dist
+        run: |
+          OUTPUT=composeApp/build/dist/js/productionExecutable
+          if [ -d stickers ]; then
+            cp -r stickers "$OUTPUT/"
+          fi
+
+
+      - name: Upload build for deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: composeApp/build/dist/js/productionExecutable
+
+
+      - name: Install EdgeOne CLI
+        run: npm install -g edgeone
+
+
+      - name: Deploy to EdgeOne Pages
+        env:
+          EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
+        run: |
+          OUTPUT=composeApp/build/dist/js/productionExecutable
+          # 区分 PR 和 push main
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # PR 部署到 preview
+            edgeone pages deploy "$OUTPUT" -n Build -e preview -t $EDGEONE_API_TOKEN
+          else
+            # push main 部署到 production
+            edgeone pages deploy "$OUTPUT" -n Build -t $EDGEONE_API_TOKEN
+          fi
