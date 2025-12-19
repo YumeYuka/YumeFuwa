@@ -37,23 +37,8 @@ jobs:
             cp -r stickers "$OUTPUT/"
           fi
 
-      
-
-      - name: Configure git as GitHub Bot
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Push build output to pages branch
-        run: |
-          OUTPUT=composeApp/build/dist/js/productionExecutable
-          BRANCH=pages
-
-          git checkout --orphan $BRANCH
-          git rm -rf .
-
-          cp -r "$OUTPUT"/* .
-
-          git add .
-          git commit -m "chore: deploy pages"
-          git push -f origin $BRANCH
+      - name: Deploy GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: pages
+          folder: composeApp/build/dist/js/productionExecutable
