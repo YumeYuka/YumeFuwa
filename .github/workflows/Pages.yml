@@ -64,11 +64,8 @@ jobs:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
         run: |
           OUTPUT=composeApp/build/dist/js/productionExecutable
-          # 区分 PR 和 push main
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            # PR 部署到 preview
-            edgeone pages deploy "$OUTPUT" -n sticker -e preview -t $EDGEONE_API_TOKEN
-          else
-            # push main 部署到 production
-            edgeone pages deploy "$OUTPUT" -n sticker -t $EDGEONE_API_TOKEN
-          fi
+          edgeone pages deploy "$OUTPUT" \
+            --name sticker \
+            --env production \
+            --token "$EDGEONE_API_TOKEN"
+      
