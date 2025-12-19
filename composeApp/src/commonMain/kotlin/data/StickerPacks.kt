@@ -5,7 +5,7 @@ package data
  */
 val ATRIStickerPack = StickerPack(
     name = "ATRI",
-    baseUrl = "https://raw.githubusercontent.com/YumeYuka/YumeFuwa/refs/heads/Lira/stickers/ATRI",
+    baseUrl = "https://sticker.yumeyuka.plus/stickers/ATRI",
     count = 44,
     startIndex = 0,
     types = listOf(StickerType.WEBP, StickerType.PNG)
@@ -16,7 +16,7 @@ val ATRIStickerPack = StickerPack(
  */
 val enihdStickerPack = StickerPack(
     name = "enihd",
-    baseUrl = "https://raw.githubusercontent.com/YumeYuka/YumeFuwa/refs/heads/Lira/stickers/enihd",
+    baseUrl = "https://sticker.yumeyuka.plus/stickers/enihd",
     count = 16,
     startIndex = 0,
     types = listOf(StickerType.WEBP, StickerType.PNG)
@@ -27,7 +27,7 @@ val enihdStickerPack = StickerPack(
  */
 val mortisStickerPack = StickerPack(
     name = "mortis",
-    baseUrl = "https://raw.githubusercontent.com/YumeYuka/YumeFuwa/refs/heads/Lira/stickers/mortis",
+    baseUrl = "https://sticker.yumeyuka.plus/stickers/mortis",
     count = 68,
     startIndex = 0,
     types = listOf(StickerType.WEBP, StickerType.PNG)
@@ -49,18 +49,17 @@ val MutsumiStickerPack = StickerPack(
  */
 val muzimi66StickerPack = StickerPack(
     name = "muzimi66",
-    baseUrl = "https://raw.githubusercontent.com/YumeYuka/YumeFuwa/refs/heads/Lira/stickers/muzimi66",
+    baseUrl = "https://sticker.yumeyuka.plus/stickers/muzimi66",
     count = 41,
     startIndex = 0,
     types = listOf(StickerType.WEBP, StickerType.PNG)
 )
-
 /**
  * Riri贴纸包
  */
 val RiriStickerPack = StickerPack(
     name = "Riri",
-    baseUrl = "https://raw.githubusercontent.com/YumeYuka/YumeFuwa/refs/heads/Lira/stickers/Riri",
+    baseUrl = "https://sticker.yumeyuka.plus/stickers/Riri",
     count = 25,
     startIndex = 0,
     types = listOf(StickerType.WEBP, StickerType.PNG)
@@ -71,7 +70,7 @@ val RiriStickerPack = StickerPack(
  */
 val TachibanaSheriStickerPack = StickerPack(
     name = "TachibanaSheri",
-    baseUrl = "https://raw.githubusercontent.com/YumeYuka/YumeFuwa/refs/heads/Lira/stickers/TachibanaSheri",
+    baseUrl = "https://sticker.yumeyuka.plus/stickers/TachibanaSheri",
     count = 24,
     startIndex = 0,
     types = listOf(StickerType.WEBP, StickerType.PNG)
@@ -82,7 +81,7 @@ val TachibanaSheriStickerPack = StickerPack(
  */
 val TaffyStickerPack = StickerPack(
     name = "Taffy",
-    baseUrl = "https://raw.githubusercontent.com/YumeYuka/YumeFuwa/refs/heads/Lira/stickers/Taffy",
+    baseUrl = "https://sticker.yumeyuka.plus/stickers/Taffy",
     count = 81,
     startIndex = 0,
     types = listOf(StickerType.WEBP, StickerType.PNG)
